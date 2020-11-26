@@ -1,0 +1,146 @@
+.navi_menu {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  text-align: center;
+  width: 60%;
+  transform: translateY(-100%);
+  transition: all 0.8s;
+  z-index: 2;
+}
+.menu_items {
+  width: 100%;
+  margin: 80px auto 0px;
+  padding: 0;
+  background: #ddd;
+}
+.menu_content {
+  list-style-type: none;
+  padding: 0;
+  width: 100%;
+  border-bottom: 1px solid #888;
+}
+.menu_content a {
+  display: block;
+  padding: 0.5em 0;
+  color: #555;
+  font-weight: bold;
+  text-decoration: none;
+}
+.active {
+  transform: translateY(-7%);
+}
+.navi_icon {
+  display: block;
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  z-index: 3;
+}
+.navi_icon span {
+  display: block;
+  position: absolute;
+  width: 30px;
+  border-bottom: solid 2px;
+  -webkit-transition: .30s;
+  -moz-transition: .30s;
+  transition: .30s;
+}
+
+.navi_icon span:nth-child(1) {
+  top: 10px;
+}
+.navi_icon span:nth-child(2) {
+  top: 20px;
+}
+.navi_icon span:nth-child(3) {
+  top: 30px;
+}
+
+.active span:nth-child(1) {
+  top: 20px;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+.active span:nth-child(2) {
+  top: 20px;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.active span:nth-child(3) {
+  top: 20px;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+/* ここからwindowの配置など調整 */
+body {
+  background-color: #ffffffee;
+}
+
+.food_main {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+}
+
+.food_main h1 {
+  font-size: 20px;
+  color: #555;
+  margin-left: 10px;
+}
+
+.edit_btn {
+  width: 180px;
+  height: 30px;
+  border-radius: 30px;
+  color: white;
+  font-weight: bolder;
+  text-decoration: none;
+  background-color: #00C6A5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 70px;
+}
+
+.old_food_01 {
+  width: 320px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.old_food_01_image {
+  width: 120px;
+  height: 120px;
+  margin: 20px;
+}
+
+.old_food_01_text {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+}
