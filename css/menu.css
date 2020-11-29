@@ -1,80 +1,84 @@
-.navi_menu {
-  position: fixed;
-  top: 0px;
-  right: 0px;
-  text-align: center;
-  width: 60%;
-  transform: translateY(-100%);
-  transition: all 0.8s;
-  z-index: 2;
+body {
+  width: 340px;
+  background-color: #ffffffee;
 }
-.menu_items {
-  width: 100%;
-  margin: 80px auto 0px;
-  padding: 0;
-  background: #ddd;
-}
-.menu_content {
-  list-style-type: none;
-  padding: 0;
-  width: 100%;
-  border-bottom: 1px solid #888;
-}
-.menu_content a {
-  display: block;
-  padding: 0.5em 0;
-  color: #555;
-  font-weight: bold;
-  text-decoration: none;
-}
-.active {
-  transform: translateY(-7%);
-}
-.navi_icon {
-  display: block;
-  position: fixed;
-  top: 10px;
-  right: 10px;
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
-  z-index: 3;
-}
-.navi_icon span {
-  display: block;
+
+.menu {
   position: absolute;
-  width: 30px;
-  border-bottom: solid 2px;
-  -webkit-transition: .30s;
-  -moz-transition: .30s;
-  transition: .30s;
-}
-
-.navi_icon span:nth-child(1) {
+  z-index: 1;
   top: 10px;
-}
-.navi_icon span:nth-child(2) {
-  top: 20px;
-}
-.navi_icon span:nth-child(3) {
-  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
 }
 
-.active span:nth-child(1) {
-  top: 20px;
-  -webkit-transform: rotate(-45deg);
-  -moz-transform: rotate(-45deg);
-  transform: rotate(-45deg);
+.recipe img {
+  width: 320px;
+  height: 120px;
+  object-fit: cover;
 }
-.active span:nth-child(2) {
-  top: 20px;
-  -webkit-transform: rotate(45deg);
-  -moz-transform: rotate(45deg);
-  transform: rotate(45deg);
+
+.recipe a {
+  margin: 5px 0px 30px;
 }
-.active span:nth-child(3) {
-  top: 20px;
-  -webkit-transform: rotate(45deg);
-  -moz-transform: rotate(45deg);
-  transform: rotate(45deg);
+
+.recipe {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.recipe_001 {
+  position: absolute;
+  z-index: 2;
+  top: 10px;
+  width: 340px;
+  height: 1300px;
+  background-color: #f5faf8;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  display: none; /* 表示したい場合はここをflexに変える必要がある */
+  flex-direction: column;
+}
+
+.recipe_001 p {
+  text-align: center;
+  font-weight: bold;
+}
+
+.recipe_001 img {
+  width: 320px;
+  height: 240px;
+  object-fit: cover;
+  margin-left: 10px;
+  margin-bottom: 30px;
+}
+
+.recipe_001 table {
+  margin-left:1em;
+}
+
+.confirm_btn {
+  width: 200px;
+  height: 30px;
+  border-radius: 30px;
+  color: white;
+  font-weight: bolder;
+  text-decoration: none;
+  background-color: #00C6A5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px 70px;
+}
+
+.confirm_btn:hover {
+  opacity: 0.5;
+  cursor: pointer;
+  cursor: hand;
 }

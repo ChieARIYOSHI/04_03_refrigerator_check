@@ -4,12 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../css/menu.css">
+  <link rel="stylesheet" href="../css/hamburger.css">
   <link rel="icon" href="../img/icon.ico">
   <title>冷蔵庫CHECKER</title>
 </head>
 
 <body>
   <header>
+    <!-- ハンバーガーメニューの表記内容です -->
     <nav class="navi_menu">
       <ul class="menu_items">
         <li class="menu_content"><a href="index.html">トップページ</a></li>
@@ -26,38 +28,59 @@
         <span></span>
       </div>
   </header>
+
+  <main>
+    <span class="sort_items"></span>
+
+    <div class="menu">
+      <div class="recipe">
+        <img src="../img/recipe_001.jpg" alt="スタミナ豚バラ丼のイメージ写真">
+        <a href="">スタミナ豚バラ丼</a>
+      </div>
+      <div class="recipe">
+        <img src="../img/recipe_002.jpg" alt="親子丼のイメージ写真">
+        <a href="">親子丼</a>
+      </div>
+      <div class="recipe">
+        <img src="../img/recipe_003.jpg" alt="豚ロース丼のイメージ写真">
+        <a href="">豚ロース丼</a>
+      </div>
+      <div class="recipe">
+        <img src="../img/recipe_004.jpg" alt="チャーハンのイメージ写真">
+        <a href="">チャーハン</a>
+      </div>
+    </div>
+
+    <div class="recipe_001">
+      <p>スタミナ豚バラ丼</p>
+      <img src="../img/recipe_001.jpg" alt="スタミナ豚バラ丼のイメージ写真">
+      <table>
+        <tr><th>品目</th><th>量</th></tr>
+        <tr><td>豚バラ</td><td>150g</td></tr>
+        <tr><td>卵</td><td>1個</td></tr>
+        <tr><td>長ねぎ</td><td>1/8本</td></tr>
+        <tr><td>玉ねぎ</td><td>1/2個</td></tr>
+        <tr><td>にら</td><td>1/8束</td></tr>
+        <tr><td>いんげん</td><td>1本</td></tr>
+        <tr><td>ごはん</td><td>1/2合</td></tr>
+        <tr><td>ごま</td><td>少々</td></tr>
+        <tr><td>にんにく</td><td>少々</td></tr>
+        <tr><td>砂糖</td><td>小さじ1</td></tr>
+        <tr><td>胡麻味噌めんつゆ</td><td>大さじ4</td></tr>
+      </table>
+      <a class="confirm_btn" href="shopping.html">このメニューで決定</a>
+    </div>
+
+  </main>
   
   <!-- ここからjavascriptです -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
   <!-- Firebaseの情報を記載しています -->
-  <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase.js"></script>
+  <script type="text/javascript" src="../javascript/firebase.js"></script>
+  <!-- ハンバーガーメニューの情報を記載しています -->
+  <script type="text/javascript" src="../javascript/hamburger.js"></script>
+  <!-- CSSの'display:none'によるページの切り替え情報を記載しています -->
+  <script type="text/javascript" src="../javascript/menu.js"></script>
 
-  <script>
-    var firebaseConfig = {
-      apiKey: //大事なコードを入れる場所,
-      authDomain: "refrigeratorcheckapp-20201126.firebaseapp.com",
-      databaseURL: "https://refrigeratorcheckapp-20201126.firebaseio.com",
-      projectId: "refrigeratorcheckapp-20201126",
-      storageBucket: "refrigeratorcheckapp-20201126.appspot.com",
-      messagingSenderId: "975540210223",
-      appId: "1:975540210223:web:6dc842b92545cf2011d4da"
-    };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-  </script>
-
-  <script>
-  $(function() {
-    $('.navi_icon').click(function() {
-      $(this).toggleClass('active');
-      if ($(this).hasClass('active')) {
-        $('.navi_menu').addClass('active');
-      } else {
-        $('.navi_menu').removeClass('active');
-      }
-    });
-  });
-  </script>
 </body>
 </html>
