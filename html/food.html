@@ -35,54 +35,89 @@
       <h1>冷蔵庫の中身を確認</h1>
     </div>
 
-    <div class="old_food_01">
-      <img class="old_food_01_image" src="">
-      <div class="old_food_01_text">
-        <p class="old_food_01_name">テスト名前</p>
-        <p class="old_food_01_quantity">テスト量</p>
-      </div>
-    </div>
+    <!-- データ出力場所 -->
+    <ul id="output"></ul>
 
-    <div class="old_food_01">
-      <img class="old_food_01_image" src="">
-      <div class="old_food_01_text">
-        <p class="old_food_01_name">テスト名前</p>
-        <p class="old_food_01_quantity">テスト量</p>
+    <!-- <div class="food_01">
+      <img class="food_01_image" src="">
+      <div class="food_01_text">
+        <p class="food_01_name">テスト名前</p>
+        <p class="food_01_quantity">テスト量</p>
       </div>
-    </div>
-
-    <div class="old_food_01">
-      <img class="old_food_01_image" src="">
-      <div class="old_food_01_text">
-        <p class="old_food_01_name">テスト名前</p>
-        <p class="old_food_01_quantity">テスト量</p>
-      </div>
-    </div>
-
-    <div class="old_food_01">
-      <img class="old_food_01_image" src="">
-      <div class="old_food_01_text">
-        <p class="old_food_01_name">テスト名前</p>
-        <p class="old_food_01_quantity">テスト量</p>
-      </div>
-    </div>
-
-    <div class="old_food_01">
-      <img class="old_food_01_image" src="">
-      <div class="old_food_01_text">
-        <p class="old_food_01_name">テスト名前</p>
-        <p class="old_food_01_quantity">テスト量</p>
-      </div>
-    </div>
+    </div> -->
 
     <a class="edit_btn" href="">中身を編集する</a>
   </main>
   
   <!-- ここからjavascriptです -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase.js"></script>
+
+<script>
+  var firebaseConfig = {
+    apiKey: "",
+    authDomain: "refrigeratorcheckapp-20201126.firebaseapp.com",
+    databaseURL: "https://refrigeratorcheckapp-20201126.firebaseio.com",
+    projectId: "refrigeratorcheckapp-20201126",
+    storageBucket: "refrigeratorcheckapp-20201126.appspot.com",
+    messagingSenderId: "975540210223",
+    appId: "1:975540210223:web:6dc842b92545cf2011d4da"
+  };
+  
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.firestore().collection('food_database');
+</script>
+
+<script>
+   // 日時をいい感じの形式にする関数
+  function convertFromFirestoreTimestampToDatetime(timestamp) {
+    const _d = timestamp ? new Date(timestamp * 1000) : new Date();
+    const Y = _d.getFullYear();
+    const m = (_d.getMonth() + 1).toString().padStart(2, '0');
+    const d = _d.getDate().toString().padStart(2, '0');
+    const H = _d.getHours().toString().padStart(2, '0');
+    const i = _d.getMinutes().toString().padStart(2, '0');
+    const s = _d.getSeconds().toString().padStart(2, '0');
+    return `${Y}/${m}/${d} ${H}:${i}`;
+  };
+
+  db.where('quantity', '>', 0).orderBy('quantity', 'desc').onSnapshot(function (querySnapshot) {
+    const foodList = [];
+    querySnapshot.docs.forEach(function(doc) {
+      const data = {
+        id: doc.id,
+        data: doc.data(),
+      }
+      console.log(data);
+      foodList.push(data);
+    });
+
+    const remindedFood = [];
+    foodList.forEach(function(data) {
+      console.log(data);
+      remindedFood.push(`
+        <li id=${data.id} class="food"><a class='food' href="menu.html">
+          <div class='food_image'>
+            <image ${data.data.image}> //イメージ写真を掲載したい。
+          </div>
+          <div class='food_text'>
+            <p>${data.data.name}</p>
+            <p>${data.data.quantity} ${data.data.unit}</p>
+            <p>購入日： ${convertFromFirestoreTimestampToDatetime(data.data.quality.seconds)}</p>
+          </div>
+        </a></li>
+      `);  
+    });  
+    $('#output').html(remindedFood);
+  });
+
+</script>
 
   <!-- Firebaseの情報を記載しています -->
-  <script type="text/javascript" src="../javascript/firebase.js"></script>
+  <!-- <script type="text/javascript" src="../javascript/firebase.js"></script> -->
+  <!-- CSSの'display:none'によるページの切り替え情報を記載しています -->
+  <!-- <script type="text/javascript" src="../javascript/food.js"></script> -->
   <!-- ハンバーガーメニューの情報を記載しています -->
   <script type="text/javascript" src="../javascript/hamburger.js"></script>
 </body>

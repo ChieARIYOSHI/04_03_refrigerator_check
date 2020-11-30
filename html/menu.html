@@ -29,8 +29,13 @@
       </div>
   </header>
 
-  <main>
-    <span class="sort_items"></span>
+  <main class="menu_main">
+    <div class="title">
+      <img class="icon" src="../img/icon.png" alt="冷蔵庫のアイコン">
+      <h1>メニューを探す</h1>
+    </div>
+
+    <span class="icons"></span> <!-- ここに選択した#食材を表記したい -->
 
     <div class="menu">
       <div class="recipe">
@@ -70,17 +75,33 @@
       </table>
       <a class="confirm_btn" href="shopping.html">このメニューで決定</a>
     </div>
-
   </main>
-  
+
   <!-- ここからjavascriptです -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase.js"></script>
+
+  <script>
+    var firebaseConfig = {
+      apiKey: "",
+      authDomain: "refrigeratorcheckapp-20201126.firebaseapp.com",
+      databaseURL: "https://refrigeratorcheckapp-20201126.firebaseio.com",
+      projectId: "refrigeratorcheckapp-20201126",
+      storageBucket: "refrigeratorcheckapp-20201126.appspot.com",
+      messagingSenderId: "975540210223",
+      appId: "1:975540210223:web:6dc842b92545cf2011d4da"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore().collection('food_database');
+  </script>
+  
   <!-- Firebaseの情報を記載しています -->
-  <script type="text/javascript" src="../javascript/firebase.js"></script>
+  <!-- <script type="text/javascript" src="../javascript/firebase.js"></script> -->
   <!-- ハンバーガーメニューの情報を記載しています -->
   <script type="text/javascript" src="../javascript/hamburger.js"></script>
   <!-- CSSの'display:none'によるページの切り替え情報を記載しています -->
   <script type="text/javascript" src="../javascript/menu.js"></script>
-
 </body>
 </html>
