@@ -31,7 +31,7 @@ body {
   margin-left: 10px;
 }
 
-.menu {
+.menu_list {
   position: absolute;
   z-index: 1;
   top: 10px;
@@ -44,26 +44,40 @@ body {
   top: 80px;
 }
 
-.recipe img {
+.menu img {
   width: 320px;
   height: 120px;
   object-fit: cover;
 }
 
-.recipe a {
+.menu button {
+  width: 200px;
+  height: 30px;
+  border-radius: 30px;
+  border: none;
+  color: #555;
+  font-weight: bolder;
+  text-decoration: none;
+  background-color: #e2fffa;
   margin: 5px 0px 30px;
 }
 
-.recipe {
+.menu button:hover {
+  opacity: 0.5;
+  cursor: pointer;
+  cursor: hand;
+}
+
+.menu {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.recipe_001 {
+.recipe {
   position: absolute;
   z-index: 2;
-  top: 10px;
+  top: 60px;
   width: 340px;
   height: 1300px;
   background-color: #f5faf8;
@@ -75,12 +89,12 @@ body {
   flex-direction: column;
 }
 
-.recipe_001 p {
+.recipe p {
   text-align: center;
   font-weight: bold;
 }
 
-.recipe_001 img {
+.recipe img {
   width: 320px;
   height: 240px;
   object-fit: cover;
@@ -88,14 +102,21 @@ body {
   margin-bottom: 30px;
 }
 
-.recipe_001 table {
+.recipe table {
   margin-left:1em;
 }
 
-.confirm_btn {
+/* #recipe_001 {
+  display: flex;
+} */
+
+
+.confirm_btn, .back_btn {
   width: 200px;
   height: 30px;
+  font-size: 16px;
   border-radius: 30px;
+  border: none;
   color: white;
   font-weight: bolder;
   text-decoration: none;
@@ -103,10 +124,16 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 30px 70px;
+  margin: 30px 70px 10px;
 }
 
 .confirm_btn:hover {
+  opacity: 0.5;
+  cursor: pointer;
+  cursor: hand;
+}
+
+.back_btn:hover {
   opacity: 0.5;
   cursor: pointer;
   cursor: hand;
