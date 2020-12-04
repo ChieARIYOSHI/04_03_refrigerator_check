@@ -63,6 +63,10 @@ body {
   cursor: hand;
 }
 
+.food_image {
+  object-fit: cover;
+}
+
 .food_text {
   width: 240px;
   margin-left: 30px;

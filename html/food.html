@@ -67,6 +67,8 @@
   
   firebase.initializeApp(firebaseConfig);
   const db = firebase.firestore().collection('food_database');
+  const storage = firebase.storage().ref().child('img_food');
+  // const rdb = firebase.firestore().collection('recipe_database');
 </script>
 
 <script>
@@ -99,7 +101,7 @@
       remindedFood.push(`
         <li id=${data.id} class="food"><a class='food' href="menu.html">
           <div class='food_image'>
-            <image ${data.data.image}> //イメージ写真を掲載したい。
+            <image src=${data.data.image} width="120px" height="100px">
           </div>
           <div class='food_text'>
             <p>${data.data.name}</p>
@@ -112,6 +114,18 @@
     $('#output').html(remindedFood);
   });
 
+  // $('#food_02').on('click', function() {
+  //   rdb.where('food_02', 'array-contains', 'true').onSnapshot(function(querySnapshot) {
+  //     const recipeList = [];
+  //     querySnapshot.docs.forEach(function(doc) {
+  //     const dataR = {
+  //       idR: doc.id,
+  //       dataR: doc.data(),
+  //     }
+  //     console.log(dataR);
+  //     recipeList.push(dataR);
+  //   });
+  // });
 </script>
 
   <!-- Firebaseの情報を記載しています -->
